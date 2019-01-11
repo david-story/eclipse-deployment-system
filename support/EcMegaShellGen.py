@@ -35,31 +35,39 @@ def create_shell(program, parameters):
 
 def create_instance_address(created_instances):
     server_dns = []
-    for instance_list in created_instances:
-        for instance in instance_list:
-            instance.load()
-            instance_name = "ubuntu@" + str(instance.public_dns_name)
-            server_dns.append(instance_name)
+    for instance in created_instances:
+        instance.load()
+        instance_name = "ubuntu@" + str(instance.public_dns_name)
+        server_dns.append(instance_name)
     return server_dns
 
 def create_log_file(instances, choice, mainScript, list):
-    date_time = str(datetime.datetime.now())
-    logName = "ecmega-server-log-" + str(datetime) +".txt"
+    date_time_str = str(datetime.datetime.now()).split()
+    date_time_str = date_time_str[0]
+    logName = "ecmega-server-log-" + str(date_time_str) +".txt"
     logFile = open(logName, 'w')
 
     logFile.write("- ECMEGA Server Log -\nCreated at:")
-    logFile.write(datetime)
-    logFile.write("------------- Instance Information -------------")
-    for instance in instances:
-        instance.load()
-        instanceName = "Instance Name: " + str(instance.tags)
-        instanceId = "Instance Id: " + str(instance.id)
-        instanceDNS = "Instance connection name: " + str(instance.public_dns_name)
-        instanceKey = "Instance Key: " + str(instance.key_name)
-        instanceSG = "Instance SG: " + str(instance.security_groups)
-        instanceImage = "Instance Image: " + str(instance.image_id)
-        instanceStat = "Current Status: " + str(instance.state)
+    logFile.write(str(datetime.datetime.now()))
+    logFile.write("\n")
+    logFile.write("------------- Instance Information -------------\n")
 
+    instance_iter = 1
+    for instance in instances:
+        logFile.write("\n")
+        instance.load()
+        instanceName = "\tInstance Name: " + str(instance.tags) + "\n"
+        instanceId = "\tInstance Id: " + str(instance.id) + "\n"
+        instanceDNS = "\tInstance connection name: " + str(instance.public_dns_name) + "\n"
+        instanceKey = "\tInstance Key: " + str(instance.key_name) + "\n"
+        instanceSG = "\tInstance SG: " + str(instance.security_groups) + "\n"
+        instanceImage = "\tInstance Image: " + str(instance.image_id) + "\n"
+        instanceStat = "\tCurrent Status: " + str(instance.state) + "\n"
+
+        instance_iter_text = "Instance Number: " + str(instance_iter) + "\n"
+        instance_iter += 1
+
+        logFile.write(instance_iter_text)
         logFile.write(instanceName)
         logFile.write(instanceId)
         logFile.write(instanceDNS)
@@ -67,18 +75,22 @@ def create_log_file(instances, choice, mainScript, list):
         logFile.write(instanceSG)
         logFile.write(instanceImage)
         logFile.write(instanceStat)
-    logFile.write("------------- Instance Information -------------\n")
-    logFile.write("------------- Program Information -------------")
-    mainInfo = "Main script: " + str(mainScript)
+
+
+    logFile.write("------------- End Instance Info -------------\n")
+    logFile.write("------------- Program Information -------------\n")
+    mainInfo = "Main script: " + str(mainScript) + "\n"
     logFile.write(mainInfo)
-    logFile.write("Supporting files:")
+    logFile.write("Supporting files:\n")
     for files in list:
-        logFile.write(files)
+        logFile.write(str(files))
+        logFile.write("\n")
+
     logFile.write("------------- End Program Info -------------\n")
-    logFile.write("------------- Copy & Machine Info -------------")
-    copyInfo = "Copying files from: " + str(choice)
+    logFile.write("------------- Copy & Machine Info -------------\n")
+    copyInfo = "Copying files from: " + str(choice) + "\n"
     logFile.write(copyInfo)
-    logFile.write("---------------- End All Info -----------------")
+    logFile.write("---------------- End All Info -----------------\n")
     logFile.close()
     return
 
@@ -89,6 +101,6 @@ def run_gen(created_instances, choice, mainSoftware, softwareList):
     server_address = create_instance_address(created_instances)
     log = create_log_file(created_instances, choice, mainSoftware, softwareList)
 
-    return log
+    return log, server_address
 
 
