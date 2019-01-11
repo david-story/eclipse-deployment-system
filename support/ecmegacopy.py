@@ -1,6 +1,7 @@
 import sys
 import time
 import paramiko
+import boto3
 
 def copy():
     client = paramiko.SSHClient()
@@ -12,4 +13,3 @@ def copy():
     sftp = client.open_sftp()
     print("Successfully opened SFTP")
     sftp.close()
-
