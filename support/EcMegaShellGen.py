@@ -6,7 +6,8 @@ data processing
 Written by: David Story
 
 """
-import sys
+import sys, os, boto3
+import datetime
 
 def create_shell(program, parameters):
     # creates shell name
@@ -32,30 +33,62 @@ def create_shell(program, parameters):
 
     shellFile.close()
 
+def create_instance_address(created_instances):
+    server_dns = []
+    for instance_list in created_instances:
+        for instance in instance_list:
+            instance.load()
+            instance_name = "ubuntu@" + str(instance.public_dns_name)
+            server_dns.append(instance_name)
+    return server_dns
 
-def run_gen():
-    args = sys.argv
-    argc = len(args)
-    #print("Passed arguments:", args)
-    #print("Total number of arguments:", argc)
+def create_log_file(instances, choice, mainScript, list):
+    date_time = str(datetime.datetime.now())
+    logName = "ecmega-server-log-" + str(datetime) +".txt"
+    logFile = open(logName, 'w')
 
-    # mode when just entering in program with no parameter files
+    logFile.write("- ECMEGA Server Log -\nCreated at:")
+    logFile.write(datetime)
+    logFile.write("------------- Instance Information -------------")
+    for instance in instances:
+        instance.load()
+        instanceName = "Instance Name: " + str(instance.tags)
+        instanceId = "Instance Id: " + str(instance.id)
+        instanceDNS = "Instance connection name: " + str(instance.public_dns_name)
+        instanceKey = "Instance Key: " + str(instance.key_name)
+        instanceSG = "Instance SG: " + str(instance.security_groups)
+        instanceImage = "Instance Image: " + str(instance.image_id)
+        instanceStat = "Current Status: " + str(instance.state)
 
-    if argc < 2:
-        sys.exit(-1)
-    elif argc == 2:
-        program = args[1]
-        create_shell(program, None)
+        logFile.write(instanceName)
+        logFile.write(instanceId)
+        logFile.write(instanceDNS)
+        logFile.write(instanceKey)
+        logFile.write(instanceSG)
+        logFile.write(instanceImage)
+        logFile.write(instanceStat)
+    logFile.write("------------- Instance Information -------------\n")
+    logFile.write("------------- Program Information -------------")
+    mainInfo = "Main script: " + str(mainScript)
+    logFile.write(mainInfo)
+    logFile.write("Supporting files:")
+    for files in list:
+        logFile.write(files)
+    logFile.write("------------- End Program Info -------------\n")
+    logFile.write("------------- Copy & Machine Info -------------")
+    copyInfo = "Copying files from: " + str(choice)
+    logFile.write(copyInfo)
+    logFile.write("---------------- End All Info -----------------")
+    logFile.close()
+    return
 
-        #print("Main program to run:", program)
-        #print("No Parameters")
 
-    elif argc > 2:
-        program = args[1]
-        parameters = args[2:]
-        create_shell(program, parameters)
 
-        #print("Main program to run:", program)
-        #print("Program Parameters:", parameters)
-    else:
-        sys.exit(-2)
+def run_gen(created_instances, choice, mainSoftware, softwareList):
+
+    server_address = create_instance_address(created_instances)
+    log = create_log_file(created_instances, choice, mainSoftware, softwareList)
+
+    return log
+
+
