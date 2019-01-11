@@ -33,7 +33,7 @@ def create_shell(program, parameters):
     shellFile.close()
 
 
-def main():
+def run_gen():
     args = sys.argv
     argc = len(args)
     #print("Passed arguments:", args)
@@ -59,5 +59,3 @@ def main():
         #print("Program Parameters:", parameters)
     else:
         sys.exit(-2)
-
-main()
