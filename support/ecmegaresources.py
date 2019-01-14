@@ -9,29 +9,49 @@ Written by: David Story
 import sys, os, boto3, csv
 import datetime
 
-def create_shell(program, parameters):
-    # creates shell name
-    minusExt = len(program) - 3
-    name = str(program[:minusExt]) + "-ECMEGA-AWS-RUN.sh"
+def create_shell(main_program, serverNumber):
+    # opens and reads template
+    template = open("shell-template.txt", "r")
+    contents = template.read()
 
-    # opens shell template and gets information
-    temp = open('shell-template.txt', 'r')
-    hold = temp.read()
-    temp.close()
+    # makes shell name
+    shell_name = "ECMEGA-Program-Run-" + str(serverNumber) + ".sh"
 
-    # writes to new shell file
-    shellFile = open(name, 'w')
-    shellFile.write(hold)
+    # opens shell file and writes contents
+    shellFile = open(shell_name, "w")
+    shellFile.write(contents)
 
-    # writes main program
-    shellFile.write("\npython " + str(program))
+    # creates strings for new shell contents with program name
+    py_output_file = "\npyout=`date +\"PythonOutput-\"%Y-%m-%d.%H:%M:%S\".txt\"`\n"
+    exit_file = "pyexit=`date +\"ExitOutput-\"%Y-%m-%d.%H:%M:%S\".txt\"`\n"
+    program_line = "sudo python " + str(main_program) + " > $pyout\n"
+    exit_code = "sudo echo $? > $pyexit\n"
+    moveLog = "sudo mv $pyout log/\n"
+    moveExit = "sudo mv $pyexit output/\n"
 
-    # writes all parameters
-    if (parameters != None) and (len(parameters) > 0):
-        for item in parameters:
-            shellFile.write(" "+str(item))
+    if (int(serverNumber) > 0):
+        tarstring = "SERVER_" + str(serverNumber)
+        tarstring = "tarname=`date +\"" + tarstring +"_RUN_FILES_\"%Y_%m_%d_%H_%M_%S\".tgz\"`\n"
+    else:
+        sys.exit(-1)
+    tarFiles = "tar -zcvf $tarname .\n"
+    awsCopy = "sudo aws s3 cp $tarname s3://ecmega-project-bucket/server-outputs/\n"
 
+    lineList = [py_output_file, exit_file, program_line, exit_code, moveLog, moveExit,
+                tarstring, tarFiles, awsCopy]
+    shellFile = ez_write(lineList, shellFile)
+
+    # closes file
     shellFile.close()
+
+    os.chmod(shell_name, 755)
+
+    return shellFile
+
+def ez_write(list, file):
+    for items in list:
+        file.write(items)
+    return file
 
 def create_instance_address(created_instances):
     server_dns = []
@@ -115,7 +135,10 @@ def create_instance_file(created_instances):
 def create_log(created_instances, choice, mainSoftware, softwareList):
     server_address = create_instance_address(created_instances)
     log = create_log_file(created_instances, choice, mainSoftware, softwareList)
-
     return log
 
+create_shell("ServerTesters.py", 1)
 
+file = []
+for i in range(5):
+    file.append(i)
