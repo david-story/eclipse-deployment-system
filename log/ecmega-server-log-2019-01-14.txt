@@ -1,9 +1,14 @@
 - ECMEGA Server Log -
+<<<<<<< HEAD:log/ecmega-server-log-2019-01-14.txt
 Created at:2019-01-14 11:41:46.049476
+=======
+Created at:2019-01-14 08:10:35.855855
+>>>>>>> parent of 467a1ad... new shell generator:ecmega-server-log-2019-01-14.txt
 ------------- Instance Information -------------
 
 Instance Number: 1
 	Instance Name: [{'Key': 'Name', 'Value': 'ECMEGA-SERVER-1'}]
+<<<<<<< HEAD:log/ecmega-server-log-2019-01-14.txt
 	Instance Id: i-001b7690ffbc425c0
 	Instance connection name: ec2-3-16-25-64.us-east-2.compute.amazonaws.com
 	Instance Key: ecmega-master-key
@@ -18,16 +23,41 @@ Instance Number: 2
 	Instance Key: ecmega-master-key
 	Instance SG: [{'GroupName': 'launch-wizard-20', 'GroupId': 'sg-03c0a0995b30f8390'}]
 	Instance Image: ami-0c2d62633f5578b33
+=======
+	Instance Id: i-0069fbedb017ca707
+	Instance connection name: ec2-3-16-181-47.us-east-2.compute.amazonaws.com
+	Instance Key: ecmega-master-key
+	Instance SG: [{'GroupName': 'Eclipse-Megamovie', 'GroupId': 'sg-04aad0e0fdad5d76a'}]
+	Instance Image: ami-007215663faa881be
+	Current Status: {'Code': 0, 'Name': 'pending'}
+
+Instance Number: 2
+	Instance Name: [{'Key': 'Name', 'Value': 'ECMEGA-SERVER-2'}]
+	Instance Id: i-0d7dba5d86ab9f5d2
+	Instance connection name: ec2-18-224-149-208.us-east-2.compute.amazonaws.com
+	Instance Key: ecmega-master-key
+	Instance SG: [{'GroupName': 'Eclipse-Megamovie', 'GroupId': 'sg-04aad0e0fdad5d76a'}]
+	Instance Image: ami-007215663faa881be
+>>>>>>> parent of 467a1ad... new shell generator:ecmega-server-log-2019-01-14.txt
 	Current Status: {'Code': 16, 'Name': 'running'}
 
 Instance Number: 3
 	Instance Name: [{'Key': 'Name', 'Value': 'ECMEGA-SERVER-3'}]
+<<<<<<< HEAD:log/ecmega-server-log-2019-01-14.txt
 	Instance Id: i-03acc2dd05fc44824
 	Instance connection name: ec2-18-220-228-255.us-east-2.compute.amazonaws.com
 	Instance Key: ecmega-master-key
 	Instance SG: [{'GroupName': 'launch-wizard-20', 'GroupId': 'sg-03c0a0995b30f8390'}]
 	Instance Image: ami-0c2d62633f5578b33
 	Current Status: {'Code': 16, 'Name': 'running'}
+=======
+	Instance Id: i-08408027bd3abf6d0
+	Instance connection name: ec2-3-16-183-162.us-east-2.compute.amazonaws.com
+	Instance Key: ecmega-master-key
+	Instance SG: [{'GroupName': 'Eclipse-Megamovie', 'GroupId': 'sg-04aad0e0fdad5d76a'}]
+	Instance Image: ami-007215663faa881be
+	Current Status: {'Code': 0, 'Name': 'pending'}
+>>>>>>> parent of 467a1ad... new shell generator:ecmega-server-log-2019-01-14.txt
 ------------- End Instance Info -------------
 ------------- Program Information -------------
 Main script: ServerTesters.py
