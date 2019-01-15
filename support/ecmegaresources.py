@@ -119,7 +119,7 @@ def create_instance_file(created_instances):
     with open(fileName, "w", newline="") as csvFile:
         csvWriter = csv.writer(csvFile)
         for instance in created_instances:
-            csvFile.write(str(instance))
+            csvFile.write(str(instance.id))
             csvFile.write(",")
         csvFile.close()
 
