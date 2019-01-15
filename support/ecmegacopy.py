@@ -69,6 +69,7 @@ def copy_files(created_instances, keyname):
         client.connect(instance, username="ubuntu", key_filename=keyname_path)
         sftp = client.open_sftp()
         print("Opened:", instance)
+        sftp.close()
         shell_iter += 1
 
     return
