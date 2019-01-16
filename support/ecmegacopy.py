@@ -75,6 +75,12 @@ def send_to_server(instances, key, software_files, shell_files, addresses, softw
             move_shell = "sudo cp " + str(shell_files[i]) + " server"
             client.exec_command(move_shell)
 
+            mod_shell = "sudo chmod 755 " + str(shell_files[i])
+            print("Modding shell file")
+            client.exec_command("cd server")
+            client.exec_command(mod_shell)
+            client.exec_command("cd ..")
+
             client.close()
             print("Closing server\n--------------------")
 
