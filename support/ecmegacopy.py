@@ -16,7 +16,7 @@ written by: David Story
 
 """
 """
-def sample_copy():
+deF sample_copy():
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     client.connect('ec2-18-188-214-186.us-east-2.compute.amazonaws.com', username='ubuntu', key_filename='ecmega-master-key.pem')
@@ -31,6 +31,7 @@ def sample_copy():
 
 def send_to_server(instances, key, software_files, shell_files, addresses, software_path, shell_path):
     try:
+
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         for i in range(len(instances)):
