@@ -157,4 +157,5 @@ def local_copy_to_servers(instance_file_name, keyname):
     print(software_path)
     print(shell_path)
     send_to_server(runningInstances, keyname_path, softFiles, shellFiles, dnsAddresses, software_path, shell_path)
+
     return

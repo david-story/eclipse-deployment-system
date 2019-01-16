@@ -1,11 +1,11 @@
 - ECMEGA Server Log -
-Created at:2019-01-15 17:48:45.935882
+Created at:2019-01-15 19:32:15.325255
 ------------- Instance Information -------------
 
 Instance Number: 1
 	Instance Name: [{'Key': 'Name', 'Value': 'ECMEGA-SERVER-1'}]
-	Instance Id: i-02cefef393d46586f
-	Instance connection name: ec2-13-59-89-223.us-east-2.compute.amazonaws.com
+	Instance Id: i-08eb15f2d234b5dc6
+	Instance connection name: ec2-3-17-133-6.us-east-2.compute.amazonaws.com
 	Instance Key: ecmega-master-key
 	Instance SG: [{'GroupName': 'Eclipse-Megamovie', 'GroupId': 'sg-04aad0e0fdad5d76a'}]
 	Instance Image: ami-0c2d62633f5578b33
@@ -13,8 +13,17 @@ Instance Number: 1
 
 Instance Number: 2
 	Instance Name: [{'Key': 'Name', 'Value': 'ECMEGA-SERVER-2'}]
-	Instance Id: i-081093f0e7fc9e67a
-	Instance connection name: ec2-3-17-145-128.us-east-2.compute.amazonaws.com
+	Instance Id: i-02015c33de82b2053
+	Instance connection name: ec2-18-219-53-157.us-east-2.compute.amazonaws.com
+	Instance Key: ecmega-master-key
+	Instance SG: [{'GroupName': 'Eclipse-Megamovie', 'GroupId': 'sg-04aad0e0fdad5d76a'}]
+	Instance Image: ami-0c2d62633f5578b33
+	Current Status: {'Code': 16, 'Name': 'running'}
+
+Instance Number: 3
+	Instance Name: [{'Key': 'Name', 'Value': 'ECMEGA-SERVER-3'}]
+	Instance Id: i-0468db85cf3be9d11
+	Instance connection name: ec2-3-16-129-0.us-east-2.compute.amazonaws.com
 	Instance Key: ecmega-master-key
 	Instance SG: [{'GroupName': 'Eclipse-Megamovie', 'GroupId': 'sg-04aad0e0fdad5d76a'}]
 	Instance Image: ami-0c2d62633f5578b33
@@ -23,9 +32,8 @@ Instance Number: 2
 ------------- Program Information -------------
 Main script: ServerTesters.py
 Supporting files:
-s3.ObjectSummary(bucket_name='ecmega-software', key='software/')
-s3.ObjectSummary(bucket_name='ecmega-software', key='software/ServerTesters.py')
-s3.ObjectSummary(bucket_name='ecmega-software', key='software/SingleProcessTest.py')
+ServerTesters.py
+SingleProcessTest.py
 ------------- End Program Info -------------
 ------------- Copy & Machine Info -------------
 Copying files from: local
