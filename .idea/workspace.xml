@@ -4,9 +4,13 @@
     <list default="true" id="aebad616-c967-468b-bf99-cc40f3d5dd95" name="Default Changelist" comment="added sftp close functions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aws-deployer.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/aws-deployer.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecmegarun.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/instances/ecmega-instance-file-2019-01-16.csv" beforeDir="false" afterPath="$PROJECT_DIR$/instances/ecmega-instance-file-2019-01-16.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/ecmega-server-log-2019-01-16.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/ecmega-server-log-2019-01-16.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/support/ecmegacopy.py" beforeDir="false" afterPath="$PROJECT_DIR$/support/ecmegacopy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shell/ECMEGA-Program-Run-1.sh" beforeDir="false" afterPath="$PROJECT_DIR$/shell/ECMEGA-Program-Run-1.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shell/ECMEGA-Program-Run-2.sh" beforeDir="false" afterPath="$PROJECT_DIR$/shell/ECMEGA-Program-Run-2.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shell/ECMEGA-Program-Run-3.sh" beforeDir="false" afterPath="$PROJECT_DIR$/shell/ECMEGA-Program-Run-3.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shell/shell-template.txt" beforeDir="false" afterPath="$PROJECT_DIR$/shell/shell-template.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +69,7 @@
         <counts>
           <entry key="Python Console" value="45" />
           <entry key="dummy" value="47" />
-          <entry key="py" value="4465" />
+          <entry key="py" value="4328" />
           <entry key="sh" value="18" />
           <entry key="txt" value="103" />
         </counts>
@@ -73,22 +77,22 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="168" />
-          <entry key="Python" value="4510" />
+          <entry key="Python" value="4373" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/support/ecmegacopy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
+            <state relative-caret-position="1054">
+              <caret line="73" column="53" selection-start-line="73" selection-start-column="53" selection-end-line="73" selection-end-column="53" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
                 <element signature="e#244#708#1" />
-                <marker date="1547660330713" expanded="true" signature="813:3248" ph="..." />
+                <marker date="1547655609750" expanded="true" signature="813:3014" ph="..." />
               </folding>
             </state>
           </provider>
@@ -115,17 +119,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/support/ecmegaresources.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
+            <state relative-caret-position="-308">
               <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/support/ecmegarun.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-19">
-              <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+            <state relative-caret-position="644">
+              <caret line="83" column="37" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="37" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -156,12 +160,12 @@
         <option value="$PROJECT_DIR$/support/ecmegashellgen.py" />
         <option value="$USER_HOME$/PycharmProjects/aws-tester/csv-tester.py" />
         <option value="$PROJECT_DIR$/startup.py" />
+        <option value="$PROJECT_DIR$/support/ecmegacopy.py" />
         <option value="$PROJECT_DIR$/support/ecmegaresources.py" />
         <option value="$PROJECT_DIR$/ecmegarun.py" />
         <option value="$PROJECT_DIR$/shell/ECMEGA-Program-Run-2.sh" />
         <option value="$PROJECT_DIR$/shell/shell-template.txt" />
         <option value="$PROJECT_DIR$/support/ecmegarun.py" />
-        <option value="$PROJECT_DIR$/support/ecmegacopy.py" />
       </list>
     </option>
   </component>
@@ -453,10 +457,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/support/ecmegaresources.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-308">
+          <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/shell/ECMEGA-Program-Run-2.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/support/ecmegacopy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="73" column="53" selection-start-line="73" selection-start-column="53" selection-end-line="73" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#244#708#1" />
+            <marker date="1547655609750" expanded="true" signature="813:3014" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -467,31 +490,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/support/ecmegaresources.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/support/ecmegarun.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-19">
-          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+        <state relative-caret-position="644">
+          <caret line="83" column="37" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="37" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/support/ecmegacopy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#244#708#1" />
-            <marker date="1547660330713" expanded="true" signature="813:3248" ph="..." />
           </folding>
         </state>
       </provider>
