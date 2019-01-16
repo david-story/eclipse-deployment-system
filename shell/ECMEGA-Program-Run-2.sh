@@ -1,5 +1,6 @@
 #!/bin/bash
 clear
+cd server
 sudo mkdir "software"
 sudo mkdir "output"
 sudo mkdir "log"

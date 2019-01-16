@@ -78,10 +78,8 @@ def run_server(instance_file_name, keyname):
         client.connect(dnsAddresses[i], username='ubuntu', key_filename=key)
         print("Connection successful")
         print("Entering server folder")
-        client.exec_command("cd server")
-        if platform.system() == "Windows":
-            print("Cleaning shell files")
-            client.exec_command("sudo sed -i -e 's/\r$//' " + str(shellFiles[i]))
+        client.exec_command("cd ./server")
+        client.exec_command("sudo sed -i -e 's/\r$//' " + str(shellFiles[i]))
         print("Changing permissions to shell files")
         client.exec_command("sudo chmod 755 " + str(shellFiles[i]))
         print("Running server program")
@@ -90,3 +88,4 @@ def run_server(instance_file_name, keyname):
         client.close()
     print("--------------------\nCompleted")
     return
+
