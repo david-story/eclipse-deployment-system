@@ -12,7 +12,21 @@ def f(x):
     return
 
 if __name__ == '__main__':
-    cpu = os.cpu_count()
+	
+	go = False
+	try:
+		cpu = os.cpu_count()
+		go = True
+	except:
+		pass
+		
+	try:
+		if go == False:
+			cpu = multiprocessing.cpu_count()
+			go = True
+	except:
+		cpu = 1
+		pass
     start = time.time()
     p = Pool(os.cpu_count())
     value = p.map(f, range(25000))

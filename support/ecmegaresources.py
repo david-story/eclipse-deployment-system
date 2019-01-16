@@ -123,7 +123,7 @@ def create_instance_file(created_instances):
             csvFile.write(",")
         csvFile.close()
 
-    return csvFile
+    return fileName
 
 def create_log(created_instances, choice, mainSoftware, softwareList):
     server_address = create_instance_address(created_instances)
