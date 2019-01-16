@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 i-07884da1cdcaa7455,i-0d14626de2fd120bc,i-04198ea8916ff772a,
+=======
+ec2.Instance(id='i-05ead5281b00c917d'),ec2.Instance(id='i-0c7d5180ddffbdce7'),ec2.Instance(id='i-0eac6b575bc6d1ca1'),
+>>>>>>> d14847c33be3f774cfe8092312d9d7c17fc6ab9b
