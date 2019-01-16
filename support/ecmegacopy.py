@@ -30,38 +30,58 @@ def sample_copy():
 
 
 def send_to_server(instances, key, software_files, shell_files, addresses, software_path, shell_path):
-    client = paramiko.SSHClient()
-    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    for i in range(len(instances)):
-        print("\n--------------------\nConnecting to Server:", instances[i])
-        client.connect(addresses[i], username='ubuntu', key_filename=key)
-        print("Connection successful")
-        sftp = client.open_sftp()
-        print("Opened SFTP")
+    try:
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        for i in range(len(instances)):
+            print("\n--------------------\nConnecting to Server:", instances[i])
+            client.connect(addresses[i], username='ubuntu', key_filename=key)
+            print("Making server folder")
+            client.exec_command("sudo mkdir \"server\"")
+            print("Giving it permissions")
+            client.exec_command("sudo chmod 755 server")
+            print("Connection successful")
+            sftp = client.open_sftp()
+            print("Opened SFTP")
 
-        for file in software_files:
+            for file in software_files:
+                if platform.system() == "Windows":
+                    local_path = str(software_path) + "\\" + str(file)
+
+                else:
+                    local_path = str(software_path) + str(file)
+
+                remote_path = "/home/ubuntu/" + str(file)
+                print("Remote:", remote_path)
+                # remote_path = str(file)
+                print("Sending software from this path to server:", local_path)
+                sftp.put(local_path, remote_path)
+
+                print("Moving software file to server folder")
+                move_file = "sudo cp " + str(file) + " server"
+                client.exec_command(move_file)
+
             if platform.system() == "Windows":
-                local_path = str(software_path) + "\\" + str(file)
-
+                local_shell = str(shell_path) + "\\" + str(shell_files[i])
             else:
-                local_path = str(software_path) + str(file)
+                local_shell = str(shell_path) + str(shell_files[i])
 
-            remote_path = "/home/ubuntu/" + str(file)
-            print("Sending software from this path to server:", local_path)
-            sftp.put(local_path, remote_path)
+            print("Sending shell from this path to server:", local_shell)
+            remote_shell = "/home/ubuntu/" + str(shell_files[i])
+            # remote_shell = str(shell_files[i])
+            sftp.put(local_shell, remote_shell)
 
-        if platform.system() == "Windows":
-            local_shell = str(shell_path) + "\\" + str(shell_files[i])
-        else:
-            local_shell = str(shell_path) + str(shell_files[i])
+            print("Moving shell file to server folder")
+            move_shell = "sudo cp " + str(shell_files[i]) + " server"
+            client.exec_command(move_shell)
 
-        print("Sending shell from this path to server:", local_shell)
-        remote_shell = "/home/ubuntu/" + str(shell_files[i])
-        sftp.put(local_shell, remote_shell)
-        client.close()
-        print("Closing server\n--------------------")
+            client.close()
+            print("Closing server\n--------------------")
 
-    print("Successfully copied files to all servers.")
+        print("Successfully copied files to all servers.")
+    except:
+        print("Error: Could not copy files to servers, shutting down.")
+        sys.exit(-5)
 
 
 

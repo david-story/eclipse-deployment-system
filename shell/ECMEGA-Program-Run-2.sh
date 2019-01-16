@@ -5,7 +5,7 @@ sudo mkdir "output"
 sudo mkdir "log"
 pyout=`date +"PythonOutput-"%Y-%m-%d.%H:%M:%S".txt"`
 pyexit=`date +"ExitOutput-"%Y-%m-%d.%H:%M:%S".txt"`
-sudo python ServerTesters.py > $pyout
+sudo python SingleProcessTest.py > $pyout
 sudo echo $? > $pyexit
 sudo mv $pyout log/
 sudo mv $pyexit output/
