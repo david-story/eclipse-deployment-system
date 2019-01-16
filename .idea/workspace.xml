@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aebad616-c967-468b-bf99-cc40f3d5dd95" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/software/ServerTesters.py" beforeDir="false" afterPath="$PROJECT_DIR$/software/ServerTesters.py" afterDir="false" />
+    <list default="true" id="aebad616-c967-468b-bf99-cc40f3d5dd95" name="Default Changelist" comment="added sftp close functions">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aws-deployer.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/aws-deployer.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instances/ecmega-instance-file-2019-01-14.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/instances/ecmega-instance-file-2019-01-15.csv" beforeDir="false" afterPath="$PROJECT_DIR$/instances/ecmega-instance-file-2019-01-15.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/ecmega-server-log-2019-01-14.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/ecmega-server-log-2019-01-15.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log/ecmega-server-log-2019-01-15.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shell/ECMEGA-Program-Run-4.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shell/ECMEGA-Program-Run-5.sh" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/support/ecmegacopy.py" beforeDir="false" afterPath="$PROJECT_DIR$/support/ecmegacopy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/support/ecmegaresources.py" beforeDir="false" afterPath="$PROJECT_DIR$/support/ecmegaresources.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,14 +68,14 @@
         <counts>
           <entry key="Python Console" value="45" />
           <entry key="dummy" value="47" />
-          <entry key="py" value="3968" />
+          <entry key="py" value="3994" />
           <entry key="txt" value="92" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="139" />
-          <entry key="Python" value="4013" />
+          <entry key="Python" value="4039" />
         </counts>
       </usages-collector>
     </session>
@@ -77,8 +85,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/support/ecmegacopy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="732">
-              <caret line="163" column="10" lean-forward="true" selection-start-line="163" selection-start-column="10" selection-end-line="163" selection-end-column="10" />
+            <state relative-caret-position="967">
+              <caret line="97" column="59" selection-start-line="97" selection-start-column="59" selection-end-line="97" selection-end-column="59" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
                 <element signature="e#244#708#1" />
@@ -90,8 +98,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/support/ecmegaresources.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+            <state relative-caret-position="627">
+              <caret line="111" column="18" lean-forward="true" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -131,8 +139,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1116" />
-    <option name="width" value="811" />
+    <option name="x" value="953" />
+    <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
@@ -322,7 +330,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1116" y="0" width="811" height="1047" extended-state="0" />
+    <frame x="953" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -402,21 +410,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/startup.py" />
     <entry file="file://$USER_HOME$/PycharmProjects/aws-tester/csv-tester.py" />
+    <entry file="file://$PROJECT_DIR$/support/ecmegaresources.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="111" column="18" lean-forward="true" selection-start-line="111" selection-start-column="18" selection-end-line="111" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/support/ecmegacopy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="732">
-          <caret line="163" column="10" lean-forward="true" selection-start-line="163" selection-start-column="10" selection-end-line="163" selection-end-column="10" />
+        <state relative-caret-position="967">
+          <caret line="97" column="59" selection-start-line="97" selection-start-column="59" selection-end-line="97" selection-end-column="59" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
             <element signature="e#244#708#1" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/support/ecmegaresources.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
         </state>
       </provider>
     </entry>

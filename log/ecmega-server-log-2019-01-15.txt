@@ -1,11 +1,11 @@
 - ECMEGA Server Log -
-Created at:2019-01-15 08:27:20.260730
+Created at:2019-01-15 17:48:45.935882
 ------------- Instance Information -------------
 
 Instance Number: 1
 	Instance Name: [{'Key': 'Name', 'Value': 'ECMEGA-SERVER-1'}]
-	Instance Id: i-05ead5281b00c917d
-	Instance connection name: ec2-18-188-214-186.us-east-2.compute.amazonaws.com
+	Instance Id: i-02cefef393d46586f
+	Instance connection name: ec2-13-59-89-223.us-east-2.compute.amazonaws.com
 	Instance Key: ecmega-master-key
 	Instance SG: [{'GroupName': 'Eclipse-Megamovie', 'GroupId': 'sg-04aad0e0fdad5d76a'}]
 	Instance Image: ami-0c2d62633f5578b33
@@ -13,17 +13,8 @@ Instance Number: 1
 
 Instance Number: 2
 	Instance Name: [{'Key': 'Name', 'Value': 'ECMEGA-SERVER-2'}]
-	Instance Id: i-0c7d5180ddffbdce7
-	Instance connection name: ec2-18-218-88-229.us-east-2.compute.amazonaws.com
-	Instance Key: ecmega-master-key
-	Instance SG: [{'GroupName': 'Eclipse-Megamovie', 'GroupId': 'sg-04aad0e0fdad5d76a'}]
-	Instance Image: ami-0c2d62633f5578b33
-	Current Status: {'Code': 16, 'Name': 'running'}
-
-Instance Number: 3
-	Instance Name: [{'Key': 'Name', 'Value': 'ECMEGA-SERVER-3'}]
-	Instance Id: i-0eac6b575bc6d1ca1
-	Instance connection name: ec2-18-191-219-172.us-east-2.compute.amazonaws.com
+	Instance Id: i-081093f0e7fc9e67a
+	Instance connection name: ec2-3-17-145-128.us-east-2.compute.amazonaws.com
 	Instance Key: ecmega-master-key
 	Instance SG: [{'GroupName': 'Eclipse-Megamovie', 'GroupId': 'sg-04aad0e0fdad5d76a'}]
 	Instance Image: ami-0c2d62633f5578b33

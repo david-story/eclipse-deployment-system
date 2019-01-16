@@ -30,42 +30,39 @@ def sample_copy():
 
 
 def send_to_server(instances, key, software_files, shell_files, addresses, software_path, shell_path):
-    try:
-        client = paramiko.SSHClient()
-        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        for i in range(len(instances)):
-            print("\n--------------------\nConnecting to Server:", instances[i])
-            client.connect(addresses[i], username='ubuntu', key_filename=key)
-            print("Connection successful")
-            sftp = client.open_sftp()
-            print("Opened SFTP")
+    client = paramiko.SSHClient()
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    for i in range(len(instances)):
+        print("\n--------------------\nConnecting to Server:", instances[i])
+        client.connect(addresses[i], username='ubuntu', key_filename=key)
+        print("Connection successful")
+        sftp = client.open_sftp()
+        print("Opened SFTP")
 
-            for file in software_files:
-                if platform.system() == "Windows":
-                    local_path = str(software_path) + "\\" + str(file)
-
-                else:
-                    local_path = str(software_path) + str(file)
-
-                remote_path = "/home/ubuntu/" + str(file)
-                print("Sending software from this path to server:", local_path)
-                sftp.put(local_path, remote_path)
-
+        for file in software_files:
             if platform.system() == "Windows":
-                local_shell = str(shell_path) + "\\" + str(shell_files[i])
+                local_path = str(software_path) + "\\" + str(file)
+
             else:
-                local_shell = str(shell_path) + str(shell_files[i])
+                local_path = str(software_path) + str(file)
 
-            print("Sending shell from this path to server:", local_shell)
-            remote_shell = "/home/ubuntu/" + str(shell_files[i])
-            sftp.put(local_shell, remote_shell)
-            client.close()
-            print("Closing server\n--------------------")
+            remote_path = "/home/ubuntu/" + str(file)
+            print("Sending software from this path to server:", local_path)
+            sftp.put(local_path, remote_path)
 
-        print("Successfully copied files to all servers.")
-    except:
-        print("Error: Could not copy files to servers, shutting down.")
-        sys.exit(-5)
+        if platform.system() == "Windows":
+            local_shell = str(shell_path) + "\\" + str(shell_files[i])
+        else:
+            local_shell = str(shell_path) + str(shell_files[i])
+
+        print("Sending shell from this path to server:", local_shell)
+        remote_shell = "/home/ubuntu/" + str(shell_files[i])
+        sftp.put(local_shell, remote_shell)
+        client.close()
+        print("Closing server\n--------------------")
+
+    print("Successfully copied files to all servers.")
+
 
 
 def get_instances(instance_file_path):
@@ -98,7 +95,7 @@ def make_paths(instancename, keyname):
         current = str(os.getcwd())
         shell = current + "\\shell"
         key = current + "\\keys"
-        keyname = current + "\\keys" + "\\" + str(keyname)
+        keyname = current + "\\keys" + "\\" + str(keyname) + ".pem"
         software = current + "\\software"
         instancePath = current + "\\instances"
         instanceNamePath = current + "\\instances\\" + str(instancename)
@@ -106,7 +103,7 @@ def make_paths(instancename, keyname):
         current = str(os.getcwd())
         shell = current + "/shell/"
         key = current + "/keys/"
-        keyname = current + "/keys/" + str(keyname)
+        keyname = current + "/keys/" + str(keyname) + ".pem"
         software = current + "/software/"
         instancePath = current + "/instances/"
         instanceNamePath = current + "/instances/" + str(instancename)
@@ -128,7 +125,7 @@ def get_dir_contents(shell_path, key_path, software_path, instance_path):
     return shellFiles, keyFiles, softFiles, instanceFiles
 
 
-def copy_to_servers(instance_file_name, keyname):
+def local_copy_to_servers(instance_file_name, keyname):
     # creates paths to all folders
     current_path, shell_path, key_path, keyname_path, software_path, \
     instance_path, instanceName_path = make_paths(instance_file_name, keyname)
@@ -136,7 +133,6 @@ def copy_to_servers(instance_file_name, keyname):
     # creates list of file contents
     shellFiles, keyFiles, softFiles, instanceFiles = get_dir_contents(shell_path, key_path,
                                                                       software_path, instance_path)
-
     FileExists = False
     for file in instanceFiles:
         if str(instance_file_name) == file:
