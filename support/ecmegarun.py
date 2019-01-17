@@ -4,6 +4,7 @@ import csv
 import sys
 import boto3
 import paramiko
+import time
 
 
 def get_instances(instance_file_path):
@@ -19,6 +20,7 @@ def get_instances(instance_file_path):
     created_instances = fixed_file
 
     return created_instances
+
 
 def create_instance_addresses(created_instances):
     server_dns = []
@@ -77,13 +79,31 @@ def run_server(instance_file_name, keyname):
         print("\n--------------------\nConnecting to Server:", runningInstances[i])
         client.connect(dnsAddresses[i], username='ubuntu', key_filename=key)
         print("Connection successful")
+        getSudo = "sudo -i"
+        getServerFolder = "cd /home/ubuntu/"
+        print("Changing to root")
+        print("Changing to: /home/ubuntu/")
+        client.exec_command(getSudo)
+        client.exec_command(getServerFolder)
         print("Entering server folder")
-        client.exec_command("cd ./server")
-        client.exec_command("sudo sed -i -e 's/\r$//' " + str(shellFiles[i]))
-        print("Changing permissions to shell files")
-        client.exec_command("sudo chmod 755 " + str(shellFiles[i]))
         print("Running server program")
-        client.exec_command("sudo ./" + str(shellFiles[i]))
+        sudoCommand = "sudo ./" + str(shellFiles[i])
+        print("Running shell script with:", sudoCommand)
+        client.exec_command(sudoCommand)
+
+        """
+        do1 = "tarname=`date +\"SERVER_2_RUN_FILES_\"%Y_%m_%d_%H_%M_%S\".tgz\"`"
+        do2 = "tar -zcvf $tarname ./server/"
+        do3 = "sudo aws s3 cp $tarname s3://ecmega-project-bucket/server-outputs/"
+
+        print("Changing to: /home/ubuntu/")
+        client.exec_command(do1)
+        print("taring file")
+        client.exec_command(do2)
+        print("sending to s3")
+        client.exec_command(do3)
+        """
+
         print("Closing connection to server")
         client.close()
     print("--------------------\nCompleted")

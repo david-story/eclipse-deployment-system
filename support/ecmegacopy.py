@@ -34,48 +34,77 @@ def send_to_server(instances, key, software_files, shell_files, addresses, softw
 
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+        # for each instances
         for i in range(len(instances)):
+            # first connect to server using paramiko ssh function .connect, with our current dns address
+            # and our given user and ssh key
             print("\n--------------------\nConnecting to Server:", instances[i])
             client.connect(addresses[i], username='ubuntu', key_filename=key)
-            print("Making server folder")
+
+            # we will create a folder that will be where we have all our software and outputs,
+            # as well as where we run our code
             client.exec_command("sudo mkdir \"server\"")
-            print("Giving it permissions")
+
+            # we will also give our folder full permissions
+            print("Giving server folder permissions")
             client.exec_command("sudo chmod 755 server")
+
+            # we will now open a safe FTP channel to transfer our local files to the machine
             print("Connection successful")
             sftp = client.open_sftp()
             print("Opened SFTP")
 
+            # for each file in our software list
             for file in software_files:
+                # determine the type of local machine so we can create our path
                 if platform.system() == "Windows":
                     local_path = str(software_path) + "\\" + str(file)
 
                 else:
                     local_path = str(software_path) + str(file)
 
+                # create the remote path with our new file that we would like to add
                 remote_path = "/home/ubuntu/" + str(file)
                 print("Remote:", remote_path)
                 # remote_path = str(file)
+
+                # send a new file to that path
                 print("Sending software from this path to server:", local_path)
                 sftp.put(local_path, remote_path)
 
+                # we copy that new file in the server to the server folder
                 print("Moving software file to server folder")
-                move_file = "sudo cp " + str(file) + " server"
+                move_file = "sudo mv " + str(file) + " server"
                 client.exec_command(move_file)
 
+            # determine system for our shell file local path
             if platform.system() == "Windows":
                 local_shell = str(shell_path) + "\\" + str(shell_files[i])
             else:
                 local_shell = str(shell_path) + str(shell_files[i])
 
+            # we send the shell file from the local folder to the server
             print("Sending shell from this path to server:", local_shell)
+            # we generate the local path name
             remote_shell = "/home/ubuntu/" + str(shell_files[i])
             # remote_shell = str(shell_files[i])
+            # we transfer the file using SFTP
             sftp.put(local_shell, remote_shell)
 
+            # cleans the shell file for any Windows formatting shenanigans
+            print("Cleaning shell file")
+            client.exec_command("sudo sed -i -e 's/\r$//' " + str(shell_files[i]))
+            # does one of those good old 'add permissions' stuff to the file
+            print("Modifying shell file permissions")
+            client.exec_command("sudo chmod 755 " + str(shell_files[i]))
+
+            # we move the shell file to the server folder
             print("Moving shell file to server folder")
-            move_shell = "sudo cp " + str(shell_files[i]) + " server"
+            move_shell = "sudo mv " + str(shell_files[i])
             client.exec_command(move_shell)
 
+            # we close the client
             client.close()
             print("Closing server\n--------------------")
 

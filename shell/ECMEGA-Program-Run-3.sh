@@ -1,7 +1,5 @@
 #!/bin/bash
 clear
-cd server
-sudo mkdir "software"
 sudo mkdir "output"
 sudo mkdir "log"
 pyout=`date +"PythonOutput-"%Y-%m-%d.%H:%M:%S".txt"`
@@ -11,5 +9,6 @@ sudo echo $? > $pyexit
 sudo mv $pyout log/
 sudo mv $pyexit output/
 tarname=`date +"SERVER_3_RUN_FILES_"%Y_%m_%d_%H_%M_%S".tgz"`
-tar -zcvf $tarname .
+cd ..
+sudo tar -zcvf $tarname server
 sudo aws s3 cp $tarname s3://ecmega-project-bucket/server-outputs/

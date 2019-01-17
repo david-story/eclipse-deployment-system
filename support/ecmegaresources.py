@@ -21,23 +21,25 @@ def create_shell(main_program, serverNumber):
     exit_code = "sudo echo $? > $pyexit\n"
     moveLog = "sudo mv $pyout log/\n"
     moveExit = "sudo mv $pyexit output/\n"
+    sleep = "sleep 10\n"
 
     if (int(serverNumber) > 0):
         tarstring = "SERVER_" + str(serverNumber)
         tarstring = "tarname=`date +\"" + tarstring +"_RUN_FILES_\"%Y_%m_%d_%H_%M_%S\".tgz\"`\n"
     else:
         sys.exit(-1)
-    tarFiles = "tar -zcvf $tarname .\n"
+    getOut = "cd ..\n"
+    tarFiles = "sudo tar -zcf $tarname server\n"
     awsCopy = "sudo aws s3 cp $tarname s3://ecmega-project-bucket/server-outputs/\n"
 
     lineList = [py_output_file, exit_file, program_line, exit_code, moveLog, moveExit,
-                tarstring, tarFiles, awsCopy]
+                tarstring, getOut, sleep, tarFiles, awsCopy]
     shellFile = ez_write(lineList, shellFile)
 
     # closes file
     shellFile.close()
 
-    os.chmod(shell_name, 755)
+    os.chmod(shell_name, 700)
 
     return shellFile
 
