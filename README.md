@@ -1,2 +1,2 @@
 # eclipse-deployment-system
-Deploys eclipse megamovie software on Jupyter Notebooks to AWS
+Deploys eclipse megamovie software to AWS
