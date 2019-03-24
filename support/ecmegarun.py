@@ -6,14 +6,14 @@ import boto3
 import paramiko 
 import time
 
-def get_instance(instance_file_path):
-	created_instance = []
+def get_instances(instance_file_path):
+	created_instances = []
 	with open(instance_file_path, newline='') as csvfile:
 	# reads each entry
 		instanceRead = csv.reader(csvfile, delimiter=',', quotechar="|")
 	# appends that entry to the created_instance list
-	for instance in instanceRead:
-		created_instances.append(instance)
+		for instance in instanceRead:
+			created_instances.append(instance)
     # closes the csv file when done
 	csvfile.close()
 	fixed_file = []

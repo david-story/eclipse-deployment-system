@@ -1,24 +1,24 @@
 - ECMEGA Server Log -
-Created at:2019-03-22 21:46:36.815630
+Created at:2019-03-23 21:47:29.922692
 ------------- Instance Information -------------
 
 Instance Number: 1
 	Instance Name: [{'Key': 'Name', 'Value': 'ECMEGA-SERVER-1'}]
-	Instance Id: i-03a18e314bc7cbc80
-	Instance connection name: ec2-34-222-32-66.us-west-2.compute.amazonaws.com
+	Instance Id: i-08d892e51d0a5a682
+	Instance connection name: ec2-34-216-106-106.us-west-2.compute.amazonaws.com
 	Instance Key: ecmega-master-key
-	Instance SG: [{'GroupName': 'default', 'GroupId': 'sg-47d87530'}]
-	Instance Image: ami-0d0099f1c41c01572
-	Current Status: {'Code': 16, 'Name': 'running'}
+	Instance SG: [{'GroupName': 'Megamovie-Security-Group', 'GroupId': 'sg-09877a01370dad75d'}]
+	Instance Image: ami-0bc9c19fe6120c9ea
+	Current Status: {'Code': 0, 'Name': 'pending'}
 
 Instance Number: 2
 	Instance Name: [{'Key': 'Name', 'Value': 'ECMEGA-SERVER-2'}]
-	Instance Id: i-04dcaabbfab8e4f57
-	Instance connection name: ec2-34-220-110-55.us-west-2.compute.amazonaws.com
+	Instance Id: i-0324a69f3d17a6688
+	Instance connection name: ec2-18-236-167-194.us-west-2.compute.amazonaws.com
 	Instance Key: ecmega-master-key
-	Instance SG: [{'GroupName': 'default', 'GroupId': 'sg-47d87530'}]
-	Instance Image: ami-0d0099f1c41c01572
-	Current Status: {'Code': 16, 'Name': 'running'}
+	Instance SG: [{'GroupName': 'Megamovie-Security-Group', 'GroupId': 'sg-09877a01370dad75d'}]
+	Instance Image: ami-0bc9c19fe6120c9ea
+	Current Status: {'Code': 0, 'Name': 'pending'}
 ------------- End Instance Info -------------
 ------------- Program Information -------------
 Main script: ServerTesters.py
