@@ -28,7 +28,7 @@ if __name__ == '__main__':
 		cpu = 1
 		pass
 	start = time.time()
-	p = Pool(os.cpu_count())
+	p = Pool(cpu)
 	value = p.map(f, range(25000))
 	end = time.time()
 	total = end - start

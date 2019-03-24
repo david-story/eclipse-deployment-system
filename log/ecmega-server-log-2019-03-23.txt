@@ -1,11 +1,11 @@
 - ECMEGA Server Log -
-Created at:2019-03-23 21:47:29.922692
+Created at:2019-03-23 21:56:52.076834
 ------------- Instance Information -------------
 
 Instance Number: 1
 	Instance Name: [{'Key': 'Name', 'Value': 'ECMEGA-SERVER-1'}]
-	Instance Id: i-08d892e51d0a5a682
-	Instance connection name: ec2-34-216-106-106.us-west-2.compute.amazonaws.com
+	Instance Id: i-0d45a2062013f2ca3
+	Instance connection name: ec2-34-220-237-243.us-west-2.compute.amazonaws.com
 	Instance Key: ecmega-master-key
 	Instance SG: [{'GroupName': 'Megamovie-Security-Group', 'GroupId': 'sg-09877a01370dad75d'}]
 	Instance Image: ami-0bc9c19fe6120c9ea
@@ -13,8 +13,17 @@ Instance Number: 1
 
 Instance Number: 2
 	Instance Name: [{'Key': 'Name', 'Value': 'ECMEGA-SERVER-2'}]
-	Instance Id: i-0324a69f3d17a6688
-	Instance connection name: ec2-18-236-167-194.us-west-2.compute.amazonaws.com
+	Instance Id: i-0ae92f7b8837fb666
+	Instance connection name: ec2-52-35-200-88.us-west-2.compute.amazonaws.com
+	Instance Key: ecmega-master-key
+	Instance SG: [{'GroupName': 'Megamovie-Security-Group', 'GroupId': 'sg-09877a01370dad75d'}]
+	Instance Image: ami-0bc9c19fe6120c9ea
+	Current Status: {'Code': 0, 'Name': 'pending'}
+
+Instance Number: 3
+	Instance Name: [{'Key': 'Name', 'Value': 'ECMEGA-SERVER-3'}]
+	Instance Id: i-0600b9c23f9748ed5
+	Instance connection name: ec2-34-217-179-225.us-west-2.compute.amazonaws.com
 	Instance Key: ecmega-master-key
 	Instance SG: [{'GroupName': 'Megamovie-Security-Group', 'GroupId': 'sg-09877a01370dad75d'}]
 	Instance Image: ami-0bc9c19fe6120c9ea
